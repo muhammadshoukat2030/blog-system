@@ -1,0 +1,84 @@
+<aside class="w-64 bg-[#0d1527] border-r border-gray-800 flex flex-col justify-between fixed h-full z-20 transition-colors duration-300 shadow-2xl aside-container">
+    <div class="p-5 flex-grow overflow-y-auto">
+        
+        <div class="flex items-center gap-3 mb-6 pb-5 border-b border-gray-800/60 header-border">
+            <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-500/20 text-white font-black text-sm">
+                CH
+            </div>
+            <div>
+                <h2 class="text-xs font-black text-white tracking-wide uppercase main-title">Chronicle Core</h2>
+                <span class="text-[9px] font-mono font-bold tracking-widest text-gray-500 uppercase block mt-0.5 sub-title">Publisher Studio</span>
+            </div>
+        </div>
+
+        <div class="space-y-5">
+            <div>
+                <span class="text-[9px] font-bold tracking-widest text-gray-500 uppercase block px-3 mb-2 font-mono sub-title">Workspace</span>
+                <nav class="space-y-1">
+                    <a href="/dashboard" class="flex items-center gap-3 w-full px-4 py-2.5 text-[11px] uppercase tracking-wider font-bold rounded-xl transition-all duration-200 text-left <%= currentPage === 'overview' ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/10' : 'text-gray-400 hover:text-white hover:bg-gray-800/30' %>">
+                        <span>📊</span> <span>Analytics Hub</span>
+                    </a>
+                </nav>
+            </div>
+
+            <div>
+                <span class="text-[9px] font-bold tracking-widest text-gray-500 uppercase block px-3 mb-2 font-mono sub-title">Editorial Office</span>
+                <nav class="space-y-1">
+                    <a href="/dashboard/create" class="flex items-center gap-3 w-full px-4 py-2.5 text-[11px] uppercase tracking-wider font-bold rounded-xl transition-all duration-200 text-left <%= currentPage === 'create' ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/10' : 'text-gray-400 hover:text-white hover:bg-gray-800/30' %>">
+                        <span>✍️</span> <span>Write New Story</span>
+                    </a>
+                    <a href="/dashboard/all-blogs" class="flex items-center gap-3 w-full px-4 py-2.5 text-[11px] uppercase tracking-wider font-bold rounded-xl transition-all duration-200 text-left <%= currentPage === 'all-blogs' ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/10' : 'text-gray-400 hover:text-white hover:bg-gray-800/30' %>">
+                        <span>📰</span> <span>All Published Logs</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-4 border-t border-gray-800/60 bg-gray-950/20 space-y-2 footer-border">
+        <button onclick="toggleGlobalTheme()" class="w-full flex items-center justify-center gap-2 bg-gray-900/50 border border-gray-800 text-[10px] uppercase tracking-widest font-extrabold text-gray-400 py-2.5 rounded-xl transition-all duration-150 hover:text-white input-field">
+            🌗 Toggle Interface Theme
+        </button>
+        <a href="/dashboard/logout" class="block w-full text-center bg-red-950/20 hover:bg-red-900 border border-red-900/30 text-red-400 hover:text-white text-[11px] py-2.5 rounded-xl transition-all duration-150 font-black tracking-widest uppercase">
+            🚪 Terminate Session
+        </a>
+    </div>
+</aside>
+
+<script>
+    function applySavedTheme() {
+        if (localStorage.getItem('theme-mode') === 'light') {
+            document.documentElement.classList.add('light-mode-active');
+        }
+    }
+    function toggleGlobalTheme() {
+        const isLight = document.documentElement.classList.toggle('light-mode-active');
+        localStorage.setItem('theme-mode', isLight ? 'light' : 'dark');
+    }
+    applySavedTheme();
+</script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #030712; color: #f3f4f6; }
+    
+    /* Premium Seamless Theme Transition Pipeline Rules */
+    .light-mode-active { background-color: #f8fafc !important; color: #0f172a !important; }
+    .light-mode-active .main-layout { background-color: #f8fafc !important; }
+    .light-mode-active .aside-container { background-color: #ffffff !important; border-color: #e2e8f0 !important; box-shadow: 4px 0 24px rgba(15, 23, 42, 0.03) !important; }
+    .light-mode-active .main-title { color: #0f172a !important; }
+    .light-mode-active .sub-title { color: #64748b !important; }
+    .light-mode-active .headline-title { color: #0f172a !important; }
+    .light-mode-active .header-border, .light-mode-active .footer-border { border-color: #e2e8f0 !important; }
+    
+    /* Universal Content Component Clones */
+    .premium-card { background-color: #0b111e; border: 1px solid #1e293b; color: #f3f4f6; }
+    .light-mode-active .premium-card { background-color: #ffffff !important; border-color: #e2e8f0 !important; color: #334155 !important; box-shadow: 0 4px 20px -2px rgba(0,0,0,0.05) !important; }
+    .light-mode-active .text-white { color: #0f172a !important; }
+    .light-mode-active .text-gray-400 { color: #475569 !important; }
+    
+    /* Form Inputs & Tables Rules Override */
+    .light-mode-active .input-field { background-color: #ffffff !important; border-color: #cbd5e1 !important; color: #0f172a !important; }
+    .light-mode-active .table-wrapper { background-color: #ffffff !important; border-color: #e2e8f0 !important; }
+    .light-mode-active .table-row-head { background-color: #f1f5f9 !important; border-color: #e2e8f0 !important; color: #475569 !important; }
+</style>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write New Story - Chronicle Core</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#030712] text-gray-100 min-h-screen flex main-layout transition-colors duration-200">
+
+    <%- include('partials/sidebar') %>
+
+    <main class="flex-grow pl-64 w-full min-h-screen">
+        <div class="p-8 max-w-4xl mx-auto block text-left">
+            
+            <header class="mb-8 border-b border-gray-800/60 pb-6 header-border">
+                <h1 class="text-2xl font-extrabold text-white tracking-tight headline-title">Write New Story</h1>
+                <p class="text-gray-400 text-xs mt-1">Broadcast pristine content segments out into database clusters natively.</p>
+            </header>
+
+            <form action="/dashboard" method="POST" class="premium-card p-8 rounded-2xl space-y-5 shadow-2xl transition-all duration-200">
+                <div class="grid gap-5 md:grid-cols-2">
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-400 tracking-wider mb-2">Blog Title *</label>
+                        <input type="text" name="title" required placeholder="e.g., Global Markets Surge Amid Tech Innovations" class="w-full bg-[#111827]/60 border border-gray-800 input-field rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors" />
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-400 tracking-wider mb-2">Author Name</label>
+                        <input type="text" name="author" value="Admin" required class="w-full bg-[#111827]/60 border border-gray-800 input-field rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors" />
+                    </div>
+                </div>
+                
+                <div class="grid gap-5 md:grid-cols-2">
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-400 tracking-wider mb-2">Category / Desk *</label>
+                        <select name="category" class="w-full bg-[#111827]/60 border border-gray-800 input-field rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors bg-no-repeat appearance-none cursor-pointer">
+                            <option value="Tech & Gadgets">💻 Tech & Gadgets</option>
+                            <option value="Business & Finance">📈 Business & Finance</option>
+                            <option value="Politics & Global Affairs">🏛️ Politics & Global Affairs</option>
+                            <option value="Health & Wellness">🏥 Health & Wellness</option>
+                            <option value="Sports & Athletics">⚽ Sports & Athletics</option>
+                            <option value="Entertainment & Cinema">🎬 Entertainment & Cinema</option>
+                            <option value="Science & Environment">🌍 Science & Environment</option>
+                            <option value="Lifestyle & Travel">✈️ Lifestyle & Travel</option>
+                            <option value="Education & Literacy">🎓 Education & Literacy</option>
+                            <option value="General News">📰 General News</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-400 tracking-wider mb-2">Cover Image URL</label>
+                        <input type="url" name="imageUrl" placeholder="https://images.unsplash.com/..." class="w-full bg-[#111827]/60 border border-gray-800 input-field rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors" />
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-[10px] font-bold uppercase text-gray-400 tracking-wider mb-2">Short Description *</label>
+                    <input type="text" name="description" required placeholder="Write a short summary of the blog for UI cards (Max 200 characters)..." class="w-full bg-[#111827]/60 border border-gray-800 input-field rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors" />
+                </div>
+                
+                <div>
+                    <label class="block text-[10px] font-bold uppercase text-gray-400 tracking-wider mb-2">Main Content Body *</label>
+                    <textarea name="content" required rows="6" placeholder="Start writing down your complete article details here..." class="w-full bg-[#111827]/60 border border-gray-800 input-field rounded-xl p-4 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"></textarea>
+                </div>
+                
+                <div class="flex items-center gap-4 pt-4 border-t border-gray-800/40 header-border">
+                    <button type="submit" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-xl transition-all shadow-lg shadow-emerald-600/10">Publish Article</button>
+                    <a href="/dashboard" class="bg-gray-800/60 border border-gray-700 text-gray-300 text-xs px-6 py-3 rounded-xl transition-all input-field">Cancel</a>
+                </div>
+            </form>
+
+        </div>
+    </main>
+
+</body>
+</html>

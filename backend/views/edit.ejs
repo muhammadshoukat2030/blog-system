@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify Story - Chronicle Core</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#030712] text-gray-100 min-h-screen flex main-layout transition-colors duration-200">
+
+    <%- include('partials/sidebar') %>
+
+        <main class="flex-grow pl-64 w-full min-h-screen">
+            <div class="p-8 max-w-4xl mx-auto block text-left">
+
+                <header class="mb-8 border-b border-gray-800/60 pb-6 header-border">
+                    <h1 class="text-2xl font-extrabold text-white tracking-tight headline-title">Edit Blog Post</h1>
+                    <p class="text-gray-400 text-xs mt-1">Overwriting active repository node matrix logs configuration
+                        variables.</p>
+                </header>
+
+                <form action="/dashboard/<%= blog._id %>?_method=PUT" method="POST"
+                    class="premium-card p-8 rounded-2xl space-y-5 shadow-2xl transition-all duration-200">
+                    <div class="grid gap-5 md:grid-cols-2">
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase text-gray-400 tracking-wider mb-2">Blog
+                                Title *</label>
+                            <input type="text" name="title" required value="<%= blog.title %>"
+                                class="w-full bg-[#111827]/60 border border-gray-800 input-field rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors" />
+                        </div>
+                        <div>
+                            <label
+                                class="block text-[10px] font-bold uppercase text-gray-400 tracking-wider mb-2">Author
+                                Name</label>
+                            <input type="text" name="author" value="<%= blog.author %>" required
+                                class="w-full bg-[#111827]/60 border border-gray-800 input-field rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors" />
+                        </div>
+                    </div>
+                    <div class="grid gap-5 md:grid-cols-2">
+                        <div>
+                            <label
+                                class="block text-[10px] font-bold uppercase text-gray-400 tracking-wider mb-2">Category
+                                *</label>
+                            <select name="category"
+                                class="w-full bg-[#111827]/60 border border-gray-800 input-field rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors">
+                                <option value="Tech & Gadgets" <%=blog.category==='Tech & Gadgets' ? 'selected' : '' %>
+                                    >💻 Tech & Gadgets</option>
+                                <option value="Business & Finance" <%=blog.category==='Business & Finance' ? 'selected'
+                                    : '' %>>📈 Business & Finance</option>
+                                <option value="Politics & Global Affairs" <%=blog.category==='Politics & Global Affairs'
+                                    ? 'selected' : '' %>>🏛️ Politics & Global Affairs</option>
+                                <option value="Health & Wellness" <%=blog.category==='Health & Wellness' ? 'selected'
+                                    : '' %>>🏥 Health & Wellness</option>
+                                <option value="Sports & Athletics" <%=blog.category==='Sports & Athletics' ? 'selected'
+                                    : '' %>>⚽ Sports & Athletics</option>
+                                <option value="Entertainment & Cinema" <%=blog.category==='Entertainment & Cinema'
+                                    ? 'selected' : '' %>>🎬 Entertainment & Cinema</option>
+                                <option value="Science & Environment" <%=blog.category==='Science & Environment'
+                                    ? 'selected' : '' %>>🌍 Science & Environment</option>
+                                <option value="Lifestyle & Travel" <%=blog.category==='Lifestyle & Travel' ? 'selected'
+                                    : '' %>>✈️ Lifestyle & Travel</option>
+                                <option value="Education & Literacy" <%=blog.category==='Education & Literacy'
+                                    ? 'selected' : '' %>>🎓 Education & Literacy</option>
+                                <option value="General News" <%=blog.category==='General News' ? 'selected' : '' %>>📰
+                                    General News</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase text-gray-400 tracking-wider mb-2">Cover
+                                Image URL</label>
+                            <input type="url" name="imageUrl" value="<%= blog.imageUrl %>"
+                                class="w-full bg-[#111827]/60 border border-gray-800 input-field rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors" />
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-400 tracking-wider mb-2">Short
+                            Description *</label>
+                        <input type="text" name="description" required value="<%= blog.description %>"
+                            class="w-full bg-[#111827]/60 border border-gray-800 input-field rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors" />
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-400 tracking-wider mb-2">Main
+                            Content Body *</label>
+                        <textarea name="content" required rows="6"
+                            class="w-full bg-[#111827]/60 border border-gray-800 input-field rounded-xl p-4 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"><%= blog.content %></textarea>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-gray-800/40 header-border">
+                        <button type="submit"
+                            class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider px-6 py-3 rounded-xl transition-all shadow-lg shadow-blue-600/10">Apply
+                            Modifications</button>
+                        <a href="/dashboard/all-blogs"
+                            class="bg-gray-800/60 border border-gray-700 text-gray-300 text-xs px-6 py-3 rounded-xl transition-all input-field">Dismiss</a>
+                    </div>
+                </form>
+
+            </div>
+        </main>
+
+</body>
+
+</html>

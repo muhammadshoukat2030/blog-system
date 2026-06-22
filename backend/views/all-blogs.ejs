@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Published Logs - Chronicle Core</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#030712] text-gray-100 min-h-screen flex main-layout transition-colors duration-200">
+
+    <%- include('partials/sidebar') %>
+
+    <main class="flex-grow pl-64 w-full min-h-screen">
+        <div class="p-8 max-w-5xl mx-auto block text-left">
+            
+            <header class="mb-8 border-b border-gray-800/60 pb-6 header-border">
+                <h1 class="text-2xl font-extrabold text-white tracking-tight headline-title">All Published Logs</h1>
+                <p class="text-gray-400 text-xs mt-1">Modify or track operational database items records dynamically.</p>
+            </header>
+
+            <div class="premium-card table-wrapper rounded-2xl overflow-hidden shadow-2xl transition-all duration-200">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left">
+                        <thead class="bg-gray-900/40 table-row-head text-[10px] uppercase tracking-wider text-gray-400 font-mono border-b border-gray-800/60 header-border">
+                            <tr>
+                                <th class="px-6 py-4">Title Context Meta</th>
+                                <th class="px-6 py-4">Traffic Insights</th>
+                                <th class="px-6 py-4">Engagement Logs</th>
+                                <th class="px-6 py-4 text-right">Actions Operations</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-800/40 text-gray-300 font-medium">
+                            <% blogs.forEach(blog => { %>
+                                <tr class="hover:bg-gray-900/10 transition-colors">
+                                    <td class="px-6 py-4">
+                                        <div class="font-bold text-white max-w-xs truncate headline-title"><%= blog.title %></div>
+                                        <div class="text-[10px] text-gray-500 font-mono tracking-tight"><%= blog.category %></div>
+                                    </td>
+                                    <td class="px-6 py-4 font-mono text-emerald-500 text-xs">👁️ <%= blog.viewsCount || 0 %> views</td>
+                                    <td class="px-6 py-4 font-mono text-pink-500 text-xs">❤️ <%= blog.likesCount || 0 %> likes</td>
+                                    <td class="px-6 py-4 text-right">
+                                        <div class="flex items-center justify-end gap-3">
+                                            <a href="/dashboard/edit/<%= blog._id %>" class="text-xs bg-gray-800/60 hover:bg-gray-700 text-gray-200 px-3 py-1.5 rounded-xl border border-gray-700/50 input-field transition">Edit</a>
+                                            <form action="/dashboard/<%= blog._id %>?_method=DELETE" method="POST" onsubmit="return confirm('Confirm data item purge workflow?');" class="inline">
+                                                <button type="submit" class="text-xs bg-red-950/30 border border-red-900/40 text-red-400 px-3 py-1.5 rounded-xl hover:bg-red-900 transition">Delete</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>

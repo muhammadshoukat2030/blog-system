@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Hub - Chronicle Core</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#030712] text-gray-100 min-h-screen flex main-layout transition-colors duration-200">
+
+    <%- include('partials/sidebar') %>
+
+    <main class="flex-grow pl-64 w-full min-h-screen">
+        <div class="p-8 max-w-5xl mx-auto block text-left">
+            
+            <header class="mb-8 border-b border-gray-800/60 pb-6 header-border">
+                <h1 class="text-2xl font-extrabold text-white tracking-tight headline-title">Analytics Hub</h1>
+                <p class="text-gray-400 text-xs mt-1">Realtime database evaluation reporting system tracking channels live.</p>
+            </header>
+
+            <section class="grid gap-6 sm:grid-cols-3 mb-8">
+                <div class="premium-card p-6 rounded-2xl transition-all duration-200 shadow-xl">
+                    <p class="text-[10px] font-extrabold text-gray-400 uppercase tracking-widest font-mono">Total Post Volume</p>
+                    <p class="text-3xl font-black mt-2 font-mono text-blue-500"><%= blogs ? blogs.length : 0 %></p>
+                    <span class="text-[10px] text-gray-500 font-semibold mt-1 block">Live Database Node Items</span>
+                </div>
+                <div class="premium-card p-6 rounded-2xl transition-all duration-200 shadow-xl">
+                    <p class="text-[10px] font-extrabold text-gray-400 uppercase tracking-widest font-mono">Reader Impressions</p>
+                    <p class="text-3xl font-black mt-2 font-mono text-emerald-500">👁️ <%= totalViews || 0 %></p>
+                    <span class="text-[10px] text-gray-500 font-semibold mt-1 block">Dynamic Entry Requests Hits</span>
+                </div>
+                <div class="premium-card p-6 rounded-2xl transition-all duration-200 shadow-xl">
+                    <p class="text-[10px] font-extrabold text-gray-400 uppercase tracking-widest font-mono">Aggregated User Likes</p>
+                    <p class="text-3xl font-black mt-2 font-mono text-pink-500">❤️ <%= totalLikes || 0 %></p>
+                    <span class="text-[10px] text-gray-500 font-semibold mt-1 block">Reader Endorsement Submissions</span>
+                </div>
+            </section>
+
+            <section class="premium-card rounded-2xl p-6 shadow-xl transition-all duration-200">
+                <h3 class="text-xs font-black text-white uppercase tracking-wider mb-2 headline-title">Operational Data Stream Analysis</h3>
+                <p class="text-gray-400 text-xs leading-relaxed font-medium">
+                    Aapka multi-channel data tracking system flawlessly sync ho chuka hai. Frontend par jab bhi koi reader post content link open karega, pipeline automatic MongoDB tracking counters record state process kar degi, jo real-time metrics overview panels par instantly compute ho jayengi.
+                </p>
+            </section>
+
+        </div>
+    </main>
+
+</body>
+</html>
